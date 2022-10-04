@@ -1,29 +1,46 @@
-def maximizar_troca_de_figurinhas(figurinhas_x, figurinhas_y):
-  
-    controle = 0
-    quantidade = 0
+def maximizar_troca_de_figurinhas(figurinhas_da_maria, figurinhas_do_joao):
+  quant = 0
+  trocas = 0
 
-    if len(figurinhas_x) < len(figurinhas_y):  
-        for x in range(len(figurinhas_x)):
-            for y in range(len(figurinhas_y)):
-                if figurinhas_x[x] == figurinhas_y[y]:
-                    controle += 1
-        quantidade = len(figurinhas_x) - controle
+ 
+ 
+
+  if len(figurinhas_da_maria) <= len(figurinhas_do_joao):
+    while figurinhas_da_maria != figurinhas_do_joao:
+     trocas = len(figurinhas_da_maria)
+     break
+   
+    maria = sorted(set(figurinhas_da_maria))
+    for i in  range(len(maria)):
+     for j in range(len(figurinhas_do_joao)):
+      if maria[i] == figurinhas_do_joao[j]:
+        quant += 1
+       
+        trocas = len(maria) - quant
+           
+  else:
+     if len(figurinhas_do_joao) <= len(figurinhas_da_maria):
+       while figurinhas_do_joao != figurinhas_da_maria:
+         trocas = len(figurinhas_do_joao)
+         break
+
+       joao = sorted(set(figurinhas_do_joao))
+       for i in range(len(joao)):
+         for j in range(len(figurinhas_da_maria)):
+           if joao[i] == figurinhas_da_maria[j]:
+             quant += 1
+             trocas = len(joao) - quant
+ 
+       
+         
+ 
+  return trocas        
+         
 
 
-    elif len(figurinhas_y) < len(figurinhas_x):
-        for x in range(len(figurinhas_y)):
-            for y in range(len(figurinhas_x)):
-                if figurinhas_y[x] == figurinhas_x[y]:
-                    controle += 1
-        quantidade = len(figurinhas_y) - controle
-
-                                                              
-    else:
-        for x in range(len(figurinhas_x)):
-            for y in range(len(figurinhas_y)):
-                if figurinhas_x[x] == figurinhas_y[y]:
-                    controle += 1
-        quantidade = len(figurinhas_x) - controle
-
-    return quantidade
+if __name__ == '_main_':
+  A, B = input().split(' ')
+  figurinhas_da_maria = input().split(' ')
+  figurinhas_da_joao = input().split(' ')
+  trocas = maximizar_troca_de_figurinhas(figurinhas_da_maria,figurinhas_da_joao)
+  print(f"{trocas}")
