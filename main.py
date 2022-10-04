@@ -2,9 +2,6 @@ def maximizar_troca_de_figurinhas(figurinhas_da_maria, figurinhas_do_joao):
   quant = 0
   trocas = 0
 
- 
- 
-
   if len(figurinhas_da_maria) <= len(figurinhas_do_joao):
     while figurinhas_da_maria != figurinhas_do_joao:
      trocas = len(figurinhas_da_maria)
@@ -30,14 +27,9 @@ def maximizar_troca_de_figurinhas(figurinhas_da_maria, figurinhas_do_joao):
            if joao[i] == figurinhas_da_maria[j]:
              quant += 1
              trocas = len(joao) - quant
- 
-       
-         
- 
+  
   return trocas        
          
-
-
 if __name__ == '_main_':
   A, B = input().split(' ')
   figurinhas_da_maria = input().split(' ')
